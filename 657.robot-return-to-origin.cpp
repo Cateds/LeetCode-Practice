@@ -1,0 +1,51 @@
+/*
+ * @lc app=leetcode.cn id=657 lang=cpp
+ * @lcpr version=30111
+ *
+ * [657] 机器人能否返回原点
+ */
+
+
+// @lcpr-template-start
+using namespace std;
+#include <algorithm>
+#include <array>
+#include <bitset>
+#include <climits>
+#include <deque>
+#include <functional>
+#include <iostream>
+#include <list>
+#include <queue>
+#include <stack>
+#include <tuple>
+#include <unordered_map>
+#include <unordered_set>
+#include <utility>
+#include <vector>
+// @lcpr-template-end
+// @lc code=start
+class Solution {
+public:
+    bool judgeCircle(string moves) {
+        unordered_map<int,int> CharCount;
+        for (auto &ch: moves)
+            CharCount[ch] ++;
+        return !(CharCount['U']-CharCount['D']) && !(CharCount['L']-CharCount['R']);
+    }
+};
+// @lc code=end
+
+
+
+/*
+// @lcpr case=start
+// "UD"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "LL"\n
+// @lcpr case=end
+
+ */
+

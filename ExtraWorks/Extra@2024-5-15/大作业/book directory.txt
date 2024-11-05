@@ -1,0 +1,6 @@
+Book's Name # ISBN Code # Book's Author
+Way Home # 918482 # Karlin
+Maldives # 928374 # Lonely Planet
+History # 857264 # Educator Union
+Periodic table # 385723 # Mendeleev
+Psychology # 265918 # Kavin
