@@ -77,11 +77,15 @@ using namespace std;
 // @lc code=start
 class Solution {
 public:
+    // 我就爱轮椅，你让我用c语言翻译一遍重新自己造一遍轮椅不如杀了我
     int maxCoins(vector<int>& nums) {
         int n = nums.size();
         nums.insert(nums.begin(),1);
         nums.push_back(1);
         vector<vector<int>> dp(n+1);
+        // dp[子区间的长度][子区间的起始索引]
+        // 这样定义维度的原因是循环写起来方便些
+        // 可读性细碎
         dp.front().resize(n+1,0);
         for (int t=1; t<=n; t++) {
             dp[t].resize(n+1-t,INT_MIN);
@@ -91,6 +95,8 @@ public:
                         dp[t][i],
                         nums[i+j] * nums[i] * nums[i+t+1] + 
                         dp[j-1][i] + dp[t-j][i+j]
+                        // 回头得写markdown来记录一下解题思路了
+                        // 这个状态转移方程写的时候脑子是晕的写完了还是看不懂
                     );
         }
         return dp.back().front();
