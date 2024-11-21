@@ -74,7 +74,7 @@ public:
                         tn = TreeNum[li.node[0]];
             }
         }
-        st.root = paths.front().node[1];
+        st.root = paths.front().node[0];
         return st;
     }
 };
@@ -97,6 +97,7 @@ int main(void) {
         }
         cout << endl;
     }
+    fi.close();
     cout << "--------------------\n";
     auto st =
         Solution().findMinSpanningTree(graph);
