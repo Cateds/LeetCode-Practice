@@ -106,20 +106,37 @@ using namespace std;
 // @lc code=start
 class Solution {
 public:
-    int numberOfAlternatingGroups(vector<int> &colors, const int &k) {
-        int ans = 0;
+    // // 前缀和
+    // // 为什么我会想着写前缀和？
+    // int numberOfAlternatingGroups(vector<int> &colors, const int &k) {
+    //     int ans = 0;
+    //     uint32_t n = colors.size();
+    //     vector<uint32_t> pfx(n+1);
+    //     pfx[0] = 0;
+    //     pfx[1] = colors[0]!=colors[1];
+    //     for (uint32_t i=1; i<n-1; i++)
+    //         pfx[i+1] = pfx[i] + (colors[i]!=colors[i+1]);
+    //     pfx[n] = pfx[n-1] + (colors.back()!=colors.front());
+    //     uint32_t l=0, r=k-1;
+    //     while (r<=n)
+    //         if (pfx[r++]-pfx[l++]==k-1) ans++;
+    //     for (r=1; r<k-1; r++)
+    //         if (pfx[r]+pfx.back()-pfx[l++]==k-1) ans++;
+    //     return ans;
+    // }
+
+    // 模拟
+    int numberOfAlternatingGroups(vector<int>& colors, 
+                                  int k) {
         uint32_t n = colors.size();
-        vector<uint32_t> pfx(n+1);
-        pfx[0] = 0;
-        pfx[1] = colors[0]!=colors[1];
-        for (uint32_t i=1; i<n-1; i++)
-            pfx[i+1] = pfx[i] + (colors[i]!=colors[i+1]);
-        pfx[n] = pfx[n-1] + (colors.back()!=colors.front());
-        uint32_t l=0, r=k-1;
-        while (r<=n) 
-            if (pfx[r++]-pfx[l++]==k-1) ans++;
-        for (r=1; r<k-1; r++) 
-            if (pfx[r]+pfx.back()-pfx[l++]==k-1) ans++;
+        uint32_t ans = 0;
+        uint32_t cnt = k-1;
+        for (uint32_t i=0; i<n+k-2; i++) {
+            if (colors[i%n]!=colors[(i+1)%n]) {
+                if (cnt) cnt--;
+                if (!cnt) ans++;
+            } else cnt = k-1;
+        }
         return ans;
     }
 };
