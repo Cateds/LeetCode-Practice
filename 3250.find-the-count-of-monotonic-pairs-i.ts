@@ -1,5 +1,5 @@
 /*
- * @lc app=leetcode.cn id=3250 lang=cpp
+ * @lc app=leetcode.cn id=3250 lang=typescript
  * @lcpr version=30204
  *
  * [3250] 单调数组对的数目 I
@@ -8,10 +8,10 @@
  *
  * algorithms
  * Hard (58.24%)
- * Likes:    7
+ * Likes:    28
  * Dislikes: 0
- * Total Accepted:    3.6K
- * Total Submissions: 6.1K
+ * Total Accepted:    10.5K
+ * Total Submissions: 15.9K
  * Testcase Example:  '[2,3,2]'
  *
  * 给你一个长度为 n 的 正 整数数组 nums 。
@@ -71,51 +71,27 @@
 
 
 // @lcpr-template-start
-using namespace std;
-#include <algorithm>
-#include <array>
-#include <bitset>
-#include <climits>
-#include <deque>
-#include <functional>
-#include <iostream>
-#include <list>
-#include <queue>
-#include <stack>
-#include <tuple>
-#include <unordered_map>
-#include <unordered_set>
-#include <utility>
-#include <vector>
+
 // @lcpr-template-end
 // @lc code=start
-class Solution {
-public:
-    int countOfPairs(vector<int>& nums) {
-        uint16_t n = nums.size();
-        vector<vector<uint32_t>> dp;
-        dp.push_back(vector<uint32_t>(nums.front()+1,1));
-        for (uint16_t i=1; i<n; i++) {
-            dp.push_back(vector<uint32_t>(nums[i]+1,0));
-            int8_t shift = min(0, nums[i-1]-nums[i]);
-            uint32_t sum = 0;
-            for (uint8_t j=-shift; j<=nums[i]; j++) {
-                sum = (dp[i-1][j+shift]+sum)%(1000000000+7);
-                dp[i][j] = sum;
-            }
+function countOfPairs(nums: number[]): number {
+    let n = nums.length;
+    let dp: number[][] = [];
+    let ans = 0;
+    dp.push(new Array(nums[0]+1).fill(1));
+    for (let i=1; i<n; i++) {
+        dp.push(new Array(nums[i]+1).fill(0));
+        let shift = 0;
+        if (nums[i-1]-nums[i] <0) shift = nums[i-1]-nums[i];
+        let sum = 0;
+        for (let j = -shift; j<=nums[i]; j++) {
+            sum = (dp[i-1][j+shift]+sum)%(1000000000+7);
+            dp[i][j] = sum;
         }
-        // Debug用的神奇妙妙代码
-        // for (auto &d: dp) {
-        //     for (auto &num: d)
-        //         cout << num << ' ';
-        //     cout << endl;
-        // }
-        // cout << endl;
-        uint32_t ans = 0;
-        for (auto &d: dp.back())
-            ans = (ans+d)%(1000000000+7);
-        return ans;
     }
+    for (let d of dp[n-1])
+        ans = (ans + d)%(1000000000+7);
+    return ans;
 };
 // @lc code=end
 
@@ -128,10 +104,6 @@ public:
 
 // @lcpr case=start
 // [5,5,5,5]\n
-// @lcpr case=end
-
-// @lcpr case=start
-// [40,40,40,40,40,40,41,41,41,42,42,43,43,43,44,44,44,45,45,45,45,45,46,46,46,46,46,46,46,47,47,47,47,48,48,49,49,49,49,49,49,50,50,50,50]\n
 // @lcpr case=end
 
  */

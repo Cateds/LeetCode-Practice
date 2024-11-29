@@ -1,17 +1,17 @@
 /*
- * @lc app=leetcode.cn id=3250 lang=cpp
+ * @lc app=leetcode.cn id=3251 lang=cpp
  * @lcpr version=30204
  *
- * [3250] 单调数组对的数目 I
+ * [3251] 单调数组对的数目 II
  *
- * https://leetcode.cn/problems/find-the-count-of-monotonic-pairs-i/description/
+ * https://leetcode.cn/problems/find-the-count-of-monotonic-pairs-ii/description/
  *
  * algorithms
- * Hard (58.24%)
- * Likes:    7
+ * Hard (47.58%)
+ * Likes:    10
  * Dislikes: 0
- * Total Accepted:    3.6K
- * Total Submissions: 6.1K
+ * Total Accepted:    4.2K
+ * Total Submissions: 8.1K
  * Testcase Example:  '[2,3,2]'
  *
  * 给你一个长度为 n 的 正 整数数组 nums 。
@@ -64,7 +64,7 @@
  * 
  * 
  * 1 <= n == nums.length <= 2000
- * 1 <= nums[i] <= 50
+ * 1 <= nums[i] <= 1000
  * 
  * 
  */
@@ -91,28 +91,45 @@ using namespace std;
 // @lc code=start
 class Solution {
 public:
+    // // dp
+    // int countOfPairs(vector<int>& nums) {
+    //     uint16_t n = nums.size();
+    //     vector<vector<uint32_t>> dp;
+    //     dp.push_back(vector<uint32_t>(nums.front()+1,1));
+    //     for (uint16_t i=1; i<n; i++) {
+    //         dp.push_back(vector<uint32_t>(nums[i]+1,0));
+    //         int16_t shift = min(0, nums[i-1]-nums[i]);
+    //         uint32_t sum = 0;
+    //         for (uint16_t j=-shift; j<=nums[i]; j++) {
+    //             sum = (dp[i-1][j+shift]+sum)%(1000000000+7);
+    //             dp[i][j] = sum;
+    //         }
+    //     }
+    //     uint32_t ans = 0;
+    //     for (auto &d: dp.back())
+    //         ans = (ans+d)%(1000000000+7);
+    //     return ans;
+    // }
+
+    // 可能优化过内存使用的dp
+    // 坏消息是几乎没有优化出任何的内存使用
+    // 鉴定为没事找事干
     int countOfPairs(vector<int>& nums) {
         uint16_t n = nums.size();
-        vector<vector<uint32_t>> dp;
-        dp.push_back(vector<uint32_t>(nums.front()+1,1));
+        vector<uint32_t> prv;
+        vector<uint32_t> cur(nums.front()+1,1);
         for (uint16_t i=1; i<n; i++) {
-            dp.push_back(vector<uint32_t>(nums[i]+1,0));
-            int8_t shift = min(0, nums[i-1]-nums[i]);
+            prv = move(cur);
+            cur.resize(nums[i]+1,0);
+            uint16_t shift = max(0,nums[i]-nums[i-1]);
             uint32_t sum = 0;
-            for (uint8_t j=-shift; j<=nums[i]; j++) {
-                sum = (dp[i-1][j+shift]+sum)%(1000000000+7);
-                dp[i][j] = sum;
+            for (uint16_t j=shift; j<=nums[i]; j++) {
+                sum = (prv[j-shift]+sum)%(1000000000+7);
+                cur[j] = sum;
             }
         }
-        // Debug用的神奇妙妙代码
-        // for (auto &d: dp) {
-        //     for (auto &num: d)
-        //         cout << num << ' ';
-        //     cout << endl;
-        // }
-        // cout << endl;
         uint32_t ans = 0;
-        for (auto &d: dp.back())
+        for (auto &d: cur)
             ans = (ans+d)%(1000000000+7);
         return ans;
     }
@@ -131,7 +148,7 @@ public:
 // @lcpr case=end
 
 // @lcpr case=start
-// [40,40,40,40,40,40,41,41,41,42,42,43,43,43,44,44,44,45,45,45,45,45,46,46,46,46,46,46,46,47,47,47,47,48,48,49,49,49,49,49,49,50,50,50,50]\n
+// [1,6,13]\n
 // @lcpr case=end
 
  */
