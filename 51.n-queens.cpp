@@ -121,17 +121,16 @@ public:
                 return;
             }
             uint16_t inDanger = 0;
-            for (uint8_t i=0; i<row; i++) {
+            for (uint8_t i=0; i<row; i++) 
                 inDanger |= table[i] | table[i]<<row-i | table[i]>>row-i;
-            }
-            for (uint8_t c=0; c<n; c++) {
-                if (inDanger & 0b1<<c)
+            for (uint8_t col=0; col<n; col++) {
+                if (inDanger & 0b1<<col)
                     continue;
-                table[row] |= 0b1<<c;
-                tableStr[row][c] = 'Q';
+                table[row] |= 0b1<<col;
+                tableStr[row][col] = 'Q';
                 func(func,row+1);
-                tableStr[row][c] = '.';
-                table[row] &= ~(0b1<<c);
+                tableStr[row][col] = '.';
+                table[row] &= ~(0b1<<col);
             }
         };
         func(func, 0);
