@@ -83,11 +83,12 @@ using namespace std;
 class Solution {
 public:
     int kthGrammar(int &n, int &k) {
-        bool ans = 0;
-        for (uint8_t i=2; i<=n; i++) 
-            if (k-1 & (0b1<<(n-i)))
-                ans = !ans;
-        return ans;
+        // bool ans = 0;
+        // for (uint8_t i=2; i<=n; i++) 
+        //     if (k-1 & (0b1<<(n-i)))
+        //         ans = !ans;
+        // return ans;
+        return popcount((unsigned)k-1) & 1;
     }
 };
 // @lc code=end
