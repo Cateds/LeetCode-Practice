@@ -86,20 +86,34 @@ using namespace std;
 // @lc code=start
 class Solution {
 public:
+    // int minMovesToCaptureTheQueen(int &x1, int &y1,
+    //                               int &x2, int &y2,
+    //                               int &xt, int &yt) {
+    //     if (x1==xt and
+    //         (x2!=xt or x2==xt and (y2-y1)*(y2-yt)>0) or
+    //         y1==yt and
+    //         (y2!=yt or y2==yt and (x2-x1)*(x2-xt)>0))
+    //         return 1;
+    //     if (xt-x2==yt-y2 and
+    //         (xt-x1!=yt-y1 or xt-x1==yt-y1 and (x1-xt)*(x1-x2)>0) or
+    //         x2-xt==yt-y2 and
+    //         (x1-xt!=yt-y1 or x1-xt==yt-y1 and (x1-xt)*(x1-x2)>0))
+    //         return 1;
+    //     return 2;
+    // }
+
+    // 来点史山一行代码
     int minMovesToCaptureTheQueen(int &x1, int &y1,
                                   int &x2, int &y2,
                                   int &xt, int &yt) {
-        if (x1==xt and
+        return 2 - (x1==xt and
             (x2!=xt or x2==xt and (y2-y1)*(y2-yt)>0) or
             y1==yt and
-            (y2!=yt or y2==yt and (x2-x1)*(x2-xt)>0))
-            return 1;
-        if (xt-x2==yt-y2 and
+            (y2!=yt or y2==yt and (x2-x1)*(x2-xt)>0) or 
+            xt-x2==yt-y2 and
             (xt-x1!=yt-y1 or xt-x1==yt-y1 and (x1-xt)*(x1-x2)>0) or
             x2-xt==yt-y2 and
-            (x1-xt!=yt-y1 or x1-xt==yt-y1 and (x1-xt)*(x1-x2)>0))
-            return 1;
-        return 2;
+            (x1-xt!=yt-y1 or x1-xt==yt-y1 and (x1-xt)*(x1-x2)>0));
     }
 };
 // @lc code=end
