@@ -138,9 +138,8 @@ public:
             };
         priority_queue<uint8_t, vector<uint8_t>, decltype(cmp)> prq(cmp);
         uint8_t n = nums.size();
-        for (uint8_t i = 0; i < n; i++) {
+        for (uint8_t i = 0; i < n; i++) 
             prq.push(i);
-        }
         for (uint8_t i = 0; i < k; i++) {
             auto p = prq.top();
             nums[p] *= multiplier;
