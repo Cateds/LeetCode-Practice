@@ -5,7 +5,6 @@
  * [1] 两数之和
  */
 
-
 // @lcpr-template-start
 using namespace std;
 #include <algorithm>
@@ -29,18 +28,16 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         unordered_map<int,int> mp;
-        for (int i=0; i<nums.size(); i++) {
-            if (mp[nums[i]]) {
+        int n = nums.size();
+        for (int i=0; i<n; i++) {
+            if (mp.find(nums[i]) != mp.end())
                 return vector<int> {mp[nums[i]]-1,i};
-            }
-            else mp[target-nums[i]] = i+1;
+            mp.insert({target-nums[i], i+1});
         }
         return vector<int>();
     }
 };
 // @lc code=end
-
-
 
 /*
 // @lcpr case=start
@@ -56,4 +53,3 @@ public:
 // @lcpr case=end
 
  */
-
