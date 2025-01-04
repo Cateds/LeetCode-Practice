@@ -53,22 +53,11 @@
 
 
 // @lcpr-template-start
-using namespace std;
-#include <algorithm>
 #include <array>
-#include <bitset>
-#include <climits>
-#include <deque>
-#include <functional>
-#include <iostream>
-#include <list>
-#include <queue>
-#include <stack>
-#include <tuple>
-#include <unordered_map>
-#include <unordered_set>
-#include <utility>
 #include <vector>
+#include <string>
+using namespace std;
+
 // @lcpr-template-end
 // @lc code=start
 class Solution {
@@ -83,7 +72,7 @@ public:
         string temp(digits.length(),'0');
         char n = digits.length();
         auto dfs = 
-        [&](auto dfs, const int &depth) {
+        [&](auto &dfs, const int &depth) {
             if (depth==n) {
                 ans.push_back(temp);
                 return;
