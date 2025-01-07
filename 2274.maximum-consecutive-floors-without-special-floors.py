@@ -55,25 +55,7 @@
 
 
 # @lcpr-template-start
-from typing import List, Tuple, Dict, Any
-from collections import Counter, defaultdict, deque
-from heapq import heappush, heappop
-from math import ceil, floor, gcd
-from itertools import permutations, combinations, product, combinations_with_replacement
-from functools import lru_cache
-from copy import deepcopy
-from bisect import bisect_left, bisect_right
-from operator import itemgetter
-from random import randint
-from string import ascii_lowercase, ascii_uppercase
-from datetime import datetime
-from time import time
-from queue import Queue
-from threading import Thread
-from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
-from multiprocessing import Process, Queue, Manager
-import numpy as np
-import scipy as sp
+from typing import List
 # @lcpr-template-end
 # @lc code=start
 class Solution:
