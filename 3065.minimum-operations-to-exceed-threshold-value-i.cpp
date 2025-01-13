@@ -61,22 +61,6 @@
 
 // @lcpr-template-start
 #include <algorithm>
-#include <array>
-#include <bitset>
-#include <climits>
-#include <deque>
-#include <functional>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <tuple>
-#include <unordered_map>
-#include <unordered_set>
-#include <utility>
 #include <vector>
 using namespace std;
 // @lcpr-template-end
@@ -85,8 +69,7 @@ class Solution {
 public:
     int minOperations(vector<int> &nums, int &k) {
         // return count_if(
-        //     nums.begin(),
-        //     nums.end(),
+        //     nums.begin(), nums.end(),
         //     [&](int &val) {
         //         return val < k;
         //     });
@@ -94,7 +77,7 @@ public:
             nums,
             [&](int &val) {
                 return val < k;
-            });
+            });;
     }
 };
 // @lc code=end
