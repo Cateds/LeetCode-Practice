@@ -5,7 +5,6 @@
  * [5] 最长回文子串
  */
 
-
 // @lcpr-template-start
 #include <string>
 using namespace std;
@@ -15,26 +14,26 @@ class Solution {
 public:
     string longestPalindrome(string s) {
         int MaxLen = 0, MaxStart = 0;
-        for (int i=0; i<s.length(); i++) {
+        for (int i = 0; i < s.length(); i++) {
             int Len = 0;
-            while (i-Len>=0 && i+Len<s.length() && s[i-Len]==s[i+Len]) Len++;
-            if (Len*2-1>MaxLen) {
-                MaxLen = Len*2-1;
-                MaxStart = i-Len+1;
+            while (i - Len >= 0 && i + Len < s.length() && s[i - Len] == s[i + Len])
+                Len++;
+            if (Len * 2 - 1 > MaxLen) {
+                MaxLen = Len * 2 - 1;
+                MaxStart = i - Len + 1;
             }
             Len = 0;
-            while (i-Len>=0 && i+Len+1<s.length() && s[i-Len]==s[i+Len+1]) Len++;
-            if (Len*2>MaxLen) {
-                MaxLen = Len*2;
-                MaxStart = i-Len+1;
+            while (i - Len >= 0 && i + Len + 1 < s.length() && s[i - Len] == s[i + Len + 1])
+                Len++;
+            if (Len * 2 > MaxLen) {
+                MaxLen = Len * 2;
+                MaxStart = i - Len + 1;
             }
         }
         return s.substr(MaxStart, MaxLen);
     }
 };
 // @lc code=end
-
-
 
 /*
 // @lcpr case=start
@@ -46,4 +45,3 @@ public:
 // @lcpr case=end
 
  */
-
