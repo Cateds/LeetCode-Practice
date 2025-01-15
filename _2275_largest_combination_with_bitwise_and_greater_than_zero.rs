@@ -58,10 +58,12 @@
  */
 
 // @lcpr-template-start
+#[allow(dead_code)]
 pub struct Solution;
 // @lcpr-template-end
 // @lc code=start
 impl Solution {
+    #[allow(dead_code)]
     pub fn largest_combination(candidates: Vec<i32>) -> i32 {
         let mut cnt = [0; 24];
         for can in candidates.iter() {

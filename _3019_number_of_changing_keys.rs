@@ -54,11 +54,13 @@
  */
 
 // @lcpr-template-start
+#[allow(dead_code)]
 pub struct Solution;
 // @lcpr-template-end
 // @lc code=start
 impl Solution {
-    pub fn count_key_changes(s: String) -> i32 {
+    #[allow(dead_code)]
+pub fn count_key_changes(s: String) -> i32 {
         let mut prv = s.chars().nth(0).unwrap() as i32 | 32;
         let mut ans = 0;
         for i in 1..s.len() {

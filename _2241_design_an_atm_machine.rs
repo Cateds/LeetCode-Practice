@@ -74,6 +74,7 @@
 */
 
 // @lcpr-template-start
+#[allow(dead_code)]
 pub struct Solution;
 // @lcpr-template-end
 // @lc code=start
@@ -93,6 +94,7 @@ struct ATM {
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
  */
+#[allow(dead_code)]
 impl ATM {
     fn new() -> Self {
         return ATM {

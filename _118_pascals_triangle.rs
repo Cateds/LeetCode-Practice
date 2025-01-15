@@ -47,11 +47,13 @@
 use std::vec;
 
 // @lcpr-template-start
+#[allow(dead_code)]
 pub struct Solution;
 // @lcpr-template-end
 // @lc code=start
 impl Solution {
-    pub fn generate(num_rows: i32) -> Vec<Vec<i32>> {
+    #[allow(dead_code)]
+pub fn generate(num_rows: i32) -> Vec<Vec<i32>> {
         let mut ans: Vec<Vec<i32>> = Vec::new();
         ans.push(Vec::from([1]));
         for i in 1..num_rows {

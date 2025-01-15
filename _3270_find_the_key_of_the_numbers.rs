@@ -75,11 +75,13 @@
  */
 
 // @lcpr-template-start
+#[allow(dead_code)]
 pub struct Solution;
 // @lcpr-template-end
 // @lc code=start
 use std::cmp::min;
 impl Solution {
+    #[allow(dead_code)]
     pub fn generate_key(mut num1: i32, mut num2: i32, mut num3: i32) -> i32 {
         let mut ans = 0;
         let mut i = 1000;

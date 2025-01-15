@@ -54,12 +54,14 @@
  */
 
 // @lcpr-template-start
+#[allow(dead_code)]
 pub struct Solution;
 // @lcpr-template-end
 // @lc code=start
 use std::cmp;
 impl Solution {
-    pub fn max_consecutive(bottom: i32, top: i32, mut special: Vec<i32>) -> i32 {
+    #[allow(dead_code)]
+pub fn max_consecutive(bottom: i32, top: i32, mut special: Vec<i32>) -> i32 {
         special.sort();
         special.push(top + 1);
         special.insert(0, bottom - 1);

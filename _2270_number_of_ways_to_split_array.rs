@@ -65,11 +65,13 @@
  */
 
 // @lcpr-template-start
+#[allow(dead_code)]
 pub struct Solution;
 // @lcpr-template-end
 // @lc code=start
 impl Solution {
-    pub fn ways_to_split_array(nums: Vec<i32>) -> i32 {
+    #[allow(dead_code)]
+pub fn ways_to_split_array(nums: Vec<i32>) -> i32 {
         let mut left: i64 = 0;
         let mut right = nums.iter().map(|val| *val as i64).sum();
         let mut ans = 0;
