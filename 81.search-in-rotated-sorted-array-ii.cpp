@@ -62,23 +62,6 @@
  */
 
 // @lcpr-template-start
-#include <algorithm>
-#include <array>
-#include <bitset>
-#include <climits>
-#include <deque>
-#include <functional>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <tuple>
-#include <unordered_map>
-#include <unordered_set>
-#include <utility>
 #include <vector>
 using namespace std;
 // @lcpr-template-end
@@ -86,15 +69,14 @@ using namespace std;
 class Solution {
 public:
     /**
-     * @brief 
-            题目限定了这是一个非降序的数组，并且经过了一次旋转。这意味着这个数组在
-            一定程度上仍然可以认为是单调的。我们只要先找到旋转处的坐标，然后通过
+      @brief 题目限定了这是一个非降序的数组，并且经过了一次旋转。这意味着这个数组
+            在一定程度上仍然可以认为是单调的。我们只要先找到旋转处的坐标，然后通过
             一个简单的数组下标变换就能把原本的数组恢复成单调的样子。然后我们就可以
             使用二分查找来块度找到target的下标。
-     * @param nums 
-     * @param target 
-     * @return true 
-     * @return false 
+      @param nums
+      @param target
+      @return true
+      @return false
      */
     bool search(vector<int> &nums, int &target) {
         int rotate_index;
