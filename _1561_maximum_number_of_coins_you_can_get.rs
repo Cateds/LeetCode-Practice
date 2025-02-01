@@ -63,12 +63,12 @@
  *
  *
  */
-
 // @lcpr-template-start
 #[allow(dead_code)]
 pub struct Solution;
 // @lcpr-template-end
 // @lc code=start
+#[allow(dead_code)]
 impl Solution {
     pub fn max_coins(mut piles: Vec<i32>) -> i32 {
         piles.sort();

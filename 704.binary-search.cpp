@@ -67,7 +67,9 @@ class Solution {
 public:
     int search(vector<int> &nums, int &target) {
         auto bs =
-            [&](auto &bs, const uint16_t &st, const uint16_t &end) -> int {
+            [&](auto &bs,
+                const uint16_t &st,
+                const uint16_t &end) -> int {
             if (st >= end)
                 return -1;
             auto i = (st + end) / 2;
