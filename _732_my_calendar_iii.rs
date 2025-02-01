@@ -65,6 +65,7 @@
  * let obj = MyCalendarThree::new();
  * let ret_1: i32 = obj.book(startTime, endTime);
  */
+#[allow(dead_code)]
 pub struct Solution;
 // @lcpr-template-end
 // @lc code=start
@@ -78,6 +79,7 @@ struct MyCalendarThree {
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
  */
+#[allow(dead_code)]
 impl MyCalendarThree {
     fn new() -> Self {
         return MyCalendarThree {

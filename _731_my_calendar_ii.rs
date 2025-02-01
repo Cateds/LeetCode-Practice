@@ -63,6 +63,7 @@
 */
 
 // @lcpr-template-start
+#[allow(dead_code)]
 pub struct Solution;
 // @lcpr-template-end
 
@@ -74,6 +75,7 @@ use std::collections::BTreeMap;
  * let obj = MyCalendarTwo::new();
  * let ret_1: bool = obj.book(startTime, endTime);
  */
+#[allow(dead_code)]
 struct MyCalendarTwo {
     cnt: BTreeMap<i32, i32>,
 }
@@ -82,6 +84,7 @@ struct MyCalendarTwo {
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
  */
+#[allow(dead_code)]
 impl MyCalendarTwo {
     fn new() -> Self {
         return MyCalendarTwo {

@@ -57,11 +57,13 @@
  */
 
 // @lcpr-template-start
+#[allow(dead_code)]
 pub struct Solution;
 // @lcpr-template-end
 // @lc code=start
 impl Solution {
-    pub fn plus_one(digits: Vec<i32>) -> Vec<i32> {
+    #[allow(dead_code)]
+pub fn plus_one(digits: Vec<i32>) -> Vec<i32> {
         let mut digits = digits.clone();
         let mut to_add: bool = true;
         for i in (0..digits.len()).rev() {

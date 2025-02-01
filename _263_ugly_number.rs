@@ -50,11 +50,13 @@
  */
 
 // @lcpr-template-start
+#[allow(dead_code)]
 pub struct Solution;
 // @lcpr-template-end
 // @lc code=start
 impl Solution {
-    pub fn is_ugly(n: i32) -> bool {
+    #[allow(dead_code)]
+pub fn is_ugly(n: i32) -> bool {
         if n == 0 {
             return false;
         }

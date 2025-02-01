@@ -60,11 +60,13 @@
  */
 
 // @lcpr-template-start
+#[allow(dead_code)]
 pub struct Solution;
 // @lcpr-template-end
 // @lc code=start
 impl Solution {
-    pub fn min_operations(nums: Vec<i32>, k: i32) -> i32 {
+    #[allow(dead_code)]
+pub fn min_operations(nums: Vec<i32>, k: i32) -> i32 {
         return nums.iter().filter(|val| **val < k).count() as i32;
     }
 }

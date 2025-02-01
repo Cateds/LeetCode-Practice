@@ -66,10 +66,12 @@
  */
 
 // @lcpr-template-start
+#[allow(dead_code)]
 pub struct Solution;
 // @lcpr-template-end
 // @lc code=start
 impl Solution {
+    #[allow(dead_code)]
     pub fn largest_good_integer(num: String) -> String {
         let mut prv = num.chars().nth(0);
         let mut cnt = 1;

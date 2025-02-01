@@ -59,12 +59,14 @@
  */
 
 // @lcpr-template-start
+#[allow(dead_code)]
 pub struct Solution;
 // @lcpr-template-end
 // @lc code=start
 use std::collections::HashMap;
 impl Solution {
-    pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
+    #[allow(dead_code)]
+pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
         let mut map: HashMap<i32, i32> = HashMap::new();
         for i in 0..nums.len() {
             if map.contains_key(&nums[i]) {

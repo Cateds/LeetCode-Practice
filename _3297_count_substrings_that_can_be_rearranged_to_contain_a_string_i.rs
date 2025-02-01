@@ -67,10 +67,12 @@
  */
 
 // @lcpr-template-start
+#[allow(dead_code)]
 pub struct Solution;
 // @lcpr-template-end
 // @lc code=start
 impl Solution {
+    #[allow(dead_code)]
     pub fn valid_substring_count(word1: String, word2: String) -> i64 {
         let mut diff: Vec<i16> = vec![0; 26];
         let n = word1.len();

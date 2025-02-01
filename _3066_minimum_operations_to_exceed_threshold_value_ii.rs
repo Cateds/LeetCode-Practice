@@ -65,17 +65,18 @@
  */
 
 // @lcpr-template-start
+#[allow(dead_code)]
 pub struct Solution;
 // @lcpr-template-end
 // @lc code=start
 use std::{cmp::Reverse, collections::BinaryHeap};
 impl Solution {
+    #[allow(dead_code)]
     pub fn min_operations(nums: Vec<i32>, k: i32) -> i32 {
         let mut ans = 0;
         let mut min_1;
         let mut min_2;
-        let mut heap =
-            BinaryHeap::from_iter(nums.iter().map(|val| return Reverse(*val as i64)));
+        let mut heap = BinaryHeap::from_iter(nums.iter().map(|val| return Reverse(*val as i64)));
         loop {
             Reverse(min_1) = heap.pop().unwrap();
             if min_1 >= k as i64 || heap.len() == 0 {
