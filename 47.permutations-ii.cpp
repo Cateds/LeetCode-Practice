@@ -69,7 +69,6 @@ public:
                              char depth, char start_idx) {
             if (depth == 0) {
                 nxt.push_back(tmp);
-                // display_vec(tmp);
                 return;
             }
             char loop_times = remain - depth + 1;
