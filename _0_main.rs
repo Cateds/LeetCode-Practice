@@ -17,6 +17,7 @@ mod _3298_count_substrings_that_can_be_rearranged_to_contain_a_string_ii;
 mod _66_plus_one;
 mod _731_my_calendar_ii;
 mod _732_my_calendar_iii;
+mod _59_spiral_matrix_ii;
 
 fn main() {
     println!("Hello, world!");
