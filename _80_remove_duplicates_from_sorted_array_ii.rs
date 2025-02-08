@@ -1,5 +1,5 @@
 /*
- * @lc app=leetcode.cn id=80 lang=cpp
+ * @lc app=leetcode.cn id=80 lang=rust
  * @lcpr version=30204
  *
  * [80] 删除有序数组中的重复项 II
@@ -68,47 +68,32 @@
  */
 
 // @lcpr-template-start
-#include <vector>
-
-using namespace std;
+#[allow(dead_code)]
+pub struct Solution;
 // @lcpr-template-end
 // @lc code=start
-class Solution {
-public:
-    int removeDuplicates(vector<int> &nums) {
-        int n = nums.size();
-
-        if (n <= 2)
-            return n;
-
-        int cpy = 0;
-        int cnt = 1;
-
-        for (int idx = 1; idx < n; idx++) {
-            if (nums[idx - 1] == nums[idx])
-                cnt++;
-            else
-                cnt = 1;
-            if (cnt <= 2)
-                nums[++cpy] = nums[idx];
+impl Solution {
+    pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
+        if nums.len() <= 2 {
+            return nums.len() as i32;
         }
-
-        return cpy + 1;
+        let mut cpy = 0;
+        let mut cnt = 1;
+        for idx in 1..nums.len() {
+            if nums[idx] == nums[idx - 1] {
+                cnt += 1;
+            } else {
+                cnt = 1;
+            }
+            if cnt <= 2 {
+                cpy += 1;
+                nums[cpy] = nums[idx];
+            }
+        }
+        return (cpy + 1) as i32;
     }
-};
+}
 // @lc code=end
-
-/**
-  @brief 
-    思路总结：
-    1. 使用双指针方式：
-       - 一个指针遍历整个数组，另一个指针指向有效区的末尾位置。
-    2. 遍历过程中，使用一个计数器记录当前数字的重复次数。
-       - 如果当前数字与前一个数字相同，则计数器递增。
-       - 否则重置计数器为1。
-    3. 当计数器小于或等于2时，将该数字写入有效区，移动有效区指针。
-    4. 最终有序数组的前部分即为去重后的数组，返回有效区的长度。
- */
 
 /*
 // @lcpr case=start
