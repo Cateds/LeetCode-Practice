@@ -18,6 +18,7 @@ mod _66_plus_one;
 mod _731_my_calendar_ii;
 mod _732_my_calendar_iii;
 mod _59_spiral_matrix_ii;
+mod _63_unique_paths_ii;
 
 fn main() {
     println!("Hello, world!");

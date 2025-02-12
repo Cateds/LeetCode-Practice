@@ -68,9 +68,9 @@ public:
             if (nums[i] == 0)
                 continue;
             else if (nums[i - 1] * nums[i] > 0 or
-                     i > 1 and
-                         nums[i - 1] == 0 and
-                         nums[i] * nums[i - 2] > 0) {
+                     (i > 1 and
+                      nums[i - 1] == 0 and
+                      nums[i] * nums[i - 2] > 0)) {
                 data_count += nums[i];
             } else {
                 data.push_back(data_count);
