@@ -5,10 +5,8 @@
  * [589] N 叉树的前序遍历
  */
 
-
 // @lcpr-template-start
 using namespace std;
-#include <vector>
 #include <algorithm>
 #include <array>
 #include <bitset>
@@ -23,13 +21,15 @@ using namespace std;
 #include <unordered_map>
 #include <unordered_set>
 #include <utility>
+#include <vector>
+
 // @lcpr-template-end
 
 // Definition for a Node.
 class Node {
 public:
     int val;
-    vector<Node*> children;
+    vector<Node *> children;
 
     Node() {}
 
@@ -37,7 +37,7 @@ public:
         val = _val;
     }
 
-    Node(int _val, vector<Node*> _children) {
+    Node(int _val, vector<Node *> _children) {
         val = _val;
         children = _children;
     }
@@ -47,23 +47,21 @@ public:
 
 class Solution {
 public:
-    vector<int> preorder(Node* root) {
+    vector<int> preorder(Node *root) {
         vector<int> Ans;
-        function<void (Node* &)> dfs =
-        [&dfs,&Ans](Node*&ptr) {
-            if (ptr==nullptr)
-                return;
-            Ans.push_back(ptr->val);
-            for (auto &ch: ptr->children)
-                dfs(ch);
-        };
+        function<void(Node *&)> dfs =
+            [&dfs, &Ans](Node *&ptr) {
+                if (ptr == nullptr)
+                    return;
+                Ans.push_back(ptr->val);
+                for (auto &ch : ptr->children)
+                    dfs(ch);
+            };
         dfs(root);
         return Ans;
     }
 };
 // @lc code=end
-
-
 
 /*
 // @lcpr case=start
@@ -75,4 +73,3 @@ public:
 // @lcpr case=end
 
  */
-
