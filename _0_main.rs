@@ -19,6 +19,7 @@ mod _731_my_calendar_ii;
 mod _732_my_calendar_iii;
 mod _59_spiral_matrix_ii;
 mod _63_unique_paths_ii;
+mod _2502_design_memory_allocator;
 
 fn main() {
     println!("Hello, world!");
