@@ -56,22 +56,8 @@
  */
 
 // @lcpr-template-start
+#include <string>
 using namespace std;
-#include <algorithm>
-#include <array>
-#include <bitset>
-#include <climits>
-#include <deque>
-#include <functional>
-#include <iostream>
-#include <list>
-#include <queue>
-#include <stack>
-#include <tuple>
-#include <unordered_map>
-#include <unordered_set>
-#include <utility>
-#include <vector>
 // @lcpr-template-end
 // @lc code=start
 class Solution {
@@ -79,7 +65,8 @@ public:
     bool isPalindrome(string &s) {
         string str;
         for (auto &ch : s) {
-            if (ch >= 'a' and ch <= 'z' or ch >= '0' and ch <= '9')
+            if ((ch >= 'a' and ch <= 'z') or
+                (ch >= '0' and ch <= '9'))
                 str.push_back(ch);
             else if (ch >= 'A' and ch <= 'Z')
                 str.push_back(ch | 0b100000);

@@ -63,7 +63,7 @@ pub struct Solution;
 // @lc code=start
 impl Solution {
     #[allow(dead_code)]
-pub fn get_row(row_index: i32) -> Vec<i32> {
+    pub fn get_row(row_index: i32) -> Vec<i32> {
         let mut ans: Vec<i32> = Vec::new();
         ans.resize((row_index + 1) as usize, 0);
         ans[row_index as usize] = 1;

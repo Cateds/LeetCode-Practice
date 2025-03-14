@@ -92,8 +92,8 @@ class SegTree {
 private:
     class Node {
     public:
-        array<long, 4> data;
         Node *l, *r;
+        array<long, 4> data;
         Node(Node *&&lp, Node *&&rp,
              array<long, 4> &&data_v)
             : l(lp), r(rp), data(data_v) {}
@@ -109,7 +109,7 @@ private:
         if (length == 1) { // leaves
             return new Node(
                 nullptr, nullptr,
-                {max(sums[begin],0), 0, 0, 0});
+                {max(sums[begin], 0), 0, 0, 0});
         } else { // branches
             auto ret = new Node(
                 BuildTree(sums, begin, begin + length / 2),
@@ -141,7 +141,7 @@ private:
                     const int &end) {
         auto length = end - begin;
         if (length == 1) { // leaves
-            ptr->data = {max(query[1],0), 0, 0, 0};
+            ptr->data = {max(query[1], 0), 0, 0, 0};
         } else { // branches
             if (query[0] < begin + length / 2)
                 ChangeNode(ptr->l, query, begin, begin + length / 2);
@@ -170,20 +170,20 @@ public:
         return root->data[0];
     }
     void QueryTask(vector<int> &query) {
-        ChangeNode(root,query,0,size);
+        ChangeNode(root, query, 0, size);
     }
 };
 class Solution {
 private:
 public:
     int maximumSumSubsequence(vector<int> &nums, vector<vector<int>> &queries) {
-        long long ans=0;
+        long long ans = 0;
         SegTree st(nums);
-        for (auto &qu: queries) {
+        for (auto &qu : queries) {
             st.QueryTask(qu);
             ans += st.getMaxVal();
         }
-        return ans%(1000000007);
+        return ans % (1000000007);
     }
 };
 // @lc code=end

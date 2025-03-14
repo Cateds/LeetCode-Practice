@@ -5,49 +5,38 @@
  * [2661] 找出叠涂元素
  */
 
-
 // @lcpr-template-start
-using namespace std;
-#include <algorithm>
-#include <array>
-#include <bitset>
-#include <climits>
-#include <deque>
-#include <functional>
-#include <iostream>
-#include <list>
-#include <queue>
-#include <stack>
-#include <tuple>
 #include <unordered_map>
-#include <unordered_set>
-#include <utility>
 #include <vector>
+using namespace std;
 // @lcpr-template-end
 // @lc code=start
 class Solution {
 public:
-    int firstCompleteIndex(vector<int>& arr, vector<vector<int>>& mat) {
-        struct Point {int Row; int Col;};
+    int firstCompleteIndex(vector<int> &arr, vector<vector<int>> &mat) {
+        struct Point {
+            int Row;
+            int Col;
+        };
         vector<int> Count_Horizonal(mat.size());
         vector<int> Count_Vertical(mat[0].size());
-        unordered_map<int,Point> mat_map;
-        for (int row=0; row<mat.size(); row++) {
-            for (int col=0; col<mat[0].size(); col++) {
-                mat_map[mat[row][col]] = Point({row,col});
+        unordered_map<int, Point> mat_map;
+        for (int row = 0; row < mat.size(); row++) {
+            for (int col = 0; col < mat[0].size(); col++) {
+                mat_map[mat[row][col]] = Point({row, col});
             }
         }
-        for (int num=0; num<arr.size(); num++) {
+        for (int num = 0; num < arr.size(); num++) {
             auto &point = mat_map[arr[num]];
-            if (++Count_Horizonal[point.Row]==mat[0].size()) return num;
-            if (++Count_Vertical[point.Col]==mat.size()) return num;
+            if (++Count_Horizonal[point.Row] == mat[0].size())
+                return num;
+            if (++Count_Vertical[point.Col] == mat.size())
+                return num;
         }
         return 0;
     }
 };
 // @lc code=end
-
-
 
 /*
 // @lcpr case=start
@@ -61,10 +50,9 @@ public:
  */
 int main(void) {
     Solution obj;
-    vector<int> input1 = {1,2,3,4};
+    vector<int> input1 = {1, 2, 3, 4};
     vector<vector<int>> input2 = {
-        {1,2},{3,4}
-    };
-    obj.firstCompleteIndex(input1,input2);
+        {1, 2}, {3, 4}};
+    obj.firstCompleteIndex(input1, input2);
     return 0;
 }

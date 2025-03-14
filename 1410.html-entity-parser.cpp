@@ -5,57 +5,50 @@
  * [1410] HTML 实体解析器
  */
 
-
 // @lcpr-template-start
+#include <string>
 using namespace std;
-#include <algorithm>
-#include <array>
-#include <bitset>
-#include <climits>
-#include <deque>
-#include <functional>
-#include <iostream>
-#include <list>
-#include <queue>
-#include <stack>
-#include <tuple>
-#include <unordered_map>
-#include <unordered_set>
-#include <utility>
-#include <vector>
 // @lcpr-template-end
 // @lc code=start
 class Solution {
 public:
     string entityParser(string text) {
         string Res;
-        for (int i=0; i<text.length(); i++) {
-            if (text[i]!='&') Res.push_back(text[i]);
+        for (int i = 0; i < text.length(); i++) {
+            if (text[i] != '&')
+                Res.push_back(text[i]);
             else {
                 string word = "&";
-                while (i<text.length()-1) {
+                while (i < text.length() - 1) {
                     i++;
-                    if (text[i]=='&') {
-                        i--; break;
+                    if (text[i] == '&') {
+                        i--;
+                        break;
                     }
                     word.push_back(text[i]);
-                    if (text[i]==';') break;
+                    if (text[i] == ';')
+                        break;
                 }
-                if (word=="&quot;") Res.push_back('\"');
-                else if (word=="&apos;") Res.push_back('\'');
-                else if (word=="&amp;") Res.push_back('&');
-                else if (word=="&gt;") Res.push_back('>');
-                else if (word=="&lt;") Res.push_back('<');
-                else if (word=="&frasl;") Res.push_back('/');
-                else Res+=word;
+                if (word == "&quot;")
+                    Res.push_back('\"');
+                else if (word == "&apos;")
+                    Res.push_back('\'');
+                else if (word == "&amp;")
+                    Res.push_back('&');
+                else if (word == "&gt;")
+                    Res.push_back('>');
+                else if (word == "&lt;")
+                    Res.push_back('<');
+                else if (word == "&frasl;")
+                    Res.push_back('/');
+                else
+                    Res += word;
             }
         }
         return Res;
     }
 };
 // @lc code=end
-
-
 
 /*
 // @lcpr case=start
@@ -79,4 +72,3 @@ public:
 // @lcpr case=end
 
  */
-

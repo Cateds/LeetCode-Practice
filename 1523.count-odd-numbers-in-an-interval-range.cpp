@@ -5,35 +5,16 @@
  * [1523] 在区间范围内统计奇数数目
  */
 
-
 // @lcpr-template-start
-using namespace std;
-#include <algorithm>
-#include <array>
-#include <bitset>
-#include <climits>
-#include <deque>
-#include <functional>
-#include <iostream>
-#include <list>
-#include <queue>
-#include <stack>
-#include <tuple>
-#include <unordered_map>
-#include <unordered_set>
-#include <utility>
-#include <vector>
 // @lcpr-template-end
 // @lc code=start
 class Solution {
 public:
     int countOdds(int low, int high) {
-        return (high - low + 1 + low%2) / 2;
+        return (high - low + 1 + low % 2) / 2;
     }
 };
 // @lc code=end
-
-
 
 /*
 // @lcpr case=start
@@ -45,4 +26,3 @@ public:
 // @lcpr case=end
 
  */
-
