@@ -22,6 +22,7 @@ mod _63_unique_paths_ii;
 mod _2502_design_memory_allocator;
 mod _1472_design_browser_history;
 mod _1328_break_a_palindrome;
+mod _3340_check_balanced_string;
 
 fn main() {
     println!("Hello, world!");
