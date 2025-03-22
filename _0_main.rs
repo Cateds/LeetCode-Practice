@@ -23,6 +23,8 @@ mod _2502_design_memory_allocator;
 mod _1472_design_browser_history;
 mod _1328_break_a_palindrome;
 mod _3340_check_balanced_string;
+mod _2610_convert_an_array_into_a_2_d_array_with_conditions;
+mod _2643_row_with_maximum_ones;
 
 fn main() {
     println!("Hello, world!");
